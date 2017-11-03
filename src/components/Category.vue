@@ -1,12 +1,17 @@
+
 <template>
     <div>
-        <div>Category: {{getCatTitle}}</div>
-        <div class="movie" v-for="movie in getMovieByCat">
-            <router-link :to="{ name: 'movie', params: { id: movie.imdb_id }}">
-                <img src="http://imgc.allpostersimages.com/img/posters/star-wars-the-force-awakens-one-sheet_u-L-F8G58H0.jpg"/>
-                <br/>
-                {{movie.title}}
-            </router-link>
+        <div class="container movies">
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-3" v-for="movie in getMovieByCat">
+                    <router-link :to="{ name: 'movie', params: { id: movie.imdb_id }}">
+                        <div class="movie">
+                            <img src="http://imgc.allpostersimages.com/img/posters/star-wars-the-force-awakens-one-sheet_u-L-F8G58H0.jpg"/>
+                            <p>{{movie.title}}</p>
+                        </div>
+                    </router-link>
+                </div>
+            </div>
         </div>
     </div>
 </template>

@@ -1,14 +1,20 @@
 <template>
     <div>
-        Sidebar<br/>
-        <router-link to="/">Home</router-link>
-        <a @click.prevent="logout" href="">Logout</a>
-        <ul>
+
+        <div class="sidebar-header">
+            <h3 @click="goHome">Vue movie</h3>
+        </div>
+
+        <ul class="list-unstyled components">
             <li v-for="gender in genders">
-                {{gender.name}}
-                <router-link :to="{name: 'category', params: {id: getSlug(gender.name)}}" >Home</router-link>
+                <router-link :to="{name: 'category', params: {id: getSlug(gender.name)}}" >{{gender.name}}</router-link>
             </li>
         </ul>
+
+        <ul class="list-unstyled CTAs">
+            <li><a @click.prevent="logout" href="#" class="download">Log Out</a></li>
+        </ul>
+
     </div>
 </template>
 
@@ -39,6 +45,9 @@
             logout: function () {
                 this.$ls.remove('logged');
                 this.$router.push('/login')
+            },
+            goHome: function () {
+                this.$router.push('/')
             }
         }
     }

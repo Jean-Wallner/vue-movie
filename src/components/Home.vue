@@ -1,16 +1,45 @@
 <template>
     <div>
-        <div>Top 10</div>
-        <div class="movie" v-for="movie in movies">
-            <router-link :to="{ name: 'movie', params: { id: movie.imdb_id }}">
-                <img src="http://imgc.allpostersimages.com/img/posters/star-wars-the-force-awakens-one-sheet_u-L-F8G58H0.jpg"/>
-                <br/>
-                {{movie.title}}
-            </router-link>
+        <div class="container movies">
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-3" v-for="movie in movies">
+                    <router-link :to="{ name: 'movie', params: { id: movie.imdb_id }}">
+                        <div class="movie">
+                            <img src="http://imgc.allpostersimages.com/img/posters/star-wars-the-force-awakens-one-sheet_u-L-F8G58H0.jpg"/>
+                            <p>{{movie.title}}</p>
+                        </div>
+                    </router-link>
+                </div>
+            </div>
         </div>
-
     </div>
 </template>
+
+<style lang="scss">
+
+div.movies {
+    div.movie {
+        background: white;
+        padding: 15px;
+        text-align: center;
+        margin-bottom: 15px;
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        p {
+            white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            margin: 0;
+            color: black;
+        }
+    }
+}
+
+</style>
 
 <script>
     import movies from '../data/movies.json';
@@ -33,7 +62,3 @@
         }
     }
 </script>
-
-<style>
-
-</style>

@@ -36,7 +36,7 @@
                 //Simulate xhr request latency
                 setTimeout(() => {
                     if(this.username.toLowerCase() === 'jean' && this.password === '123456'){
-                        this.$ls.set('logged', true, 60 * 60 * 1000);
+                        this.$ls.set('logged', true, 20000);
                         this.$router.push('/')
                     }else {
                         this.errorForm = true
