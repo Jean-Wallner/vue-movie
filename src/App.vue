@@ -1,40 +1,28 @@
 <template>
   <div>
-      <div class="sidebar">
-          <h1>sidebar</h1>
-          <router-view name="sidebar"></router-view>
-      </div>
-      <div class="main">
-          <h1>main</h1>
-          <router-view></router-view>
-      </div>
+        <!-- Login page -->
+        <div v-if="$route.name === 'login'">
+            <login-component></login-component>
+        </div>
+        <!-- Main app page -->
+        <div v-if="$route.name !== 'login'">
+            <base-component></base-component>
+        </div>
   </div>
 </template>
 
 <script>
-    export default {}
+    import Base from './templates/Base.vue'
+    import Login from './templates/Login.vue'
+
+    export default {
+        components: {
+            'login-component': Login,
+            'base-component': Base
+        }
+    }
 </script>
 
 <style>
-    body {
-        margin: 0;
-        font-size: 0;
-    }
 
-    div.sidebar {
-        font-size: 16px;
-        width: 20%;
-        display: inline-block;
-        background: #ffc3c3;
-        vertical-align: top;
-    }
-    
-    div.main {
-        position: relative;
-        font-size: 16px;
-        width: 80%;
-        display: inline-block;
-        background: #c9c9ff;
-        vertical-align: top;
-    }
 </style>

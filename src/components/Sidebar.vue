@@ -2,6 +2,7 @@
     <div>
         Sidebar<br/>
         <router-link to="/">Home</router-link>
+        <a @click.prevent="logout" href="">Logout</a>
         <ul>
             <li v-for="gender in genders">
                 {{gender.name}}
@@ -34,6 +35,10 @@
                 .replace(/\-\-+/g, '-')         // Replace multiple - with single -
                 .replace(/^-+/, '')             // Trim - from start of text
                 .replace(/-+$/, '');            // Trim - from end of text
+            },
+            logout: function () {
+                this.$ls.remove('logged');
+                this.$router.push('/login')
             }
         }
     }

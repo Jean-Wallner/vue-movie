@@ -29,7 +29,7 @@
                 let genre = this.$route.params.id,
                     results = [],
                     current = {};
-                    
+
                 this.movies.map(function(movie, key) {
                     movie.genres.map(function(value, key) {
                         if(genre === value.toLowerCase()){
@@ -43,17 +43,6 @@
     }
 </script>
 
-<style scoped>
-    div.movie {
-        background: transparent;
-        width: 25%;
-        display: inline-block;
-        height: 300px;
-        text-align: center;
-    }
+<style>
 
-    div.movie img {
-        display: inline-block;
-        width: 120px;
-    }
 </style>

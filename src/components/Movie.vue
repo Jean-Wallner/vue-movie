@@ -50,15 +50,5 @@
 </script>
 
 <style>
-    div.movie {
-        background: red;
-        width: 25%;
-        display: inline-block;
-        height: 500px;
-        text-align: center;
-    }
-
-    div.movie img {
-            display: inline-block;
-    }
+    
 </style>
